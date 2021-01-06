@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from opinion.forms import *
 
@@ -17,7 +17,7 @@ def index_view(request):
 		form =opinion_form(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('logout')
+			return HttpResponseRedirect('logout')
 	else:
 		form =opinion_form()
 		
