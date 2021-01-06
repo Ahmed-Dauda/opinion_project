@@ -70,7 +70,7 @@ class opinion(models.Model):
 	choices=wards,
 	default=('Limawa A', 'Limawa A')
 	)
-	phone_number=models.IntegerField()
+	phone_number=models.IntegerField(max_length=255)
 	programming_language=models.CharField(
 	max_length=255,
 	choices=language,
