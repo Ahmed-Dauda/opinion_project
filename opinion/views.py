@@ -1,6 +1,8 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponseRedirect
 
+from django.urls import reverse
+
 from opinion.forms import *
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -18,12 +20,9 @@ def index_view(request):
 		if form.is_valid():
 			form.save()
 			return
-			redirect('logout')
+			HttpResponseRedirect(reverse('logout'))
 			
-		else:
-			return redirect('index')
-			
-			
+		
 	else:
 		form =opinion_form()
 		
