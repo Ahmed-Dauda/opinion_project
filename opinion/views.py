@@ -19,8 +19,7 @@ def index_view(request):
 		form =opinion_form(request.POST)
 		if form.is_valid():
 			form.save()
-			return
-			HttpResponseRedirect(reverse('logout'))
+			return  render(request,'opinion/logout.html')
 			
 		else:
 			return
@@ -77,5 +76,5 @@ def signin_view(request):
 		
 	
 def logout_view(request):
-	#logout(request)
+	logout(request)
 	return  render(request,'opinion/logout.html')
