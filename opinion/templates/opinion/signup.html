@@ -1,0 +1,46 @@
+{% extends 'opinion/base.html' %}
+  
+ 
+{% block title %}
+<title>Signup page</title>
+{% endblock %}
+
+{% block body %}
+<h5 class="signup-t">Membership Registration Form</h5>
+
+<div class="form-control signup">
+  
+<form class="form-control signup" method="POST" action="" enctype="multipart/form-data">
+ 
+  {% csrf_token %}
+  
+  
+<p>{{form.username.label }}</p>
+<p>{{form.username}}</p>
+  <hr>   <p>{{form.first_name.label }}</p>
+<p>{{form.first_name}}</p>
+  <hr>   <p>{{form.last_name.label }}</p>
+<p>{{form.last_name}}</p>
+  <hr>  <p>{{form.email.label }}</p>
+<p>{{form.email}}</p>
+  <hr>  <p>{{form.password1.label }}</p>
+<p>{{form.password1}}</p>
+  <p>{{form.password2.label }}</p>
+<p>{{form.password2}}</p>
+  <br>
+  <hr>
+  <button class="form-control bt">
+    Create Account
+  </button>
+  <br>
+  <p class="form-control bt">
+    
+    Already Member? <a href="{% url 'signin' %}" >Sign In</a>
+  </p>
+  
+</form>
+  <br>
+
+
+  
+{% endblock %}

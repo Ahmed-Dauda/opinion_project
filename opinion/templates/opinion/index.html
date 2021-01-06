@@ -1,0 +1,46 @@
+{% extends 'opinion/base.html' %}
+  
+ 
+{% block title %}
+<title>User Message</title>
+{% endblock %}
+
+
+{% block body %}
+<p style="padding:10px;">Hello, {{user.username}} fill:</p>
+<h6 class="signup-t">Bio-Data of Interested Participant</h6>
+
+<div class="form-control signup">
+  
+<form class="form-control" method="POST" action="" enctype="multipart/form-data">
+  
+  {% csrf_token %}
+  
+<p>{{form.sex.label}}</p>
+  <p>{{form.sex}}</p>
+  <hr>
+<p>{{form.state.label}}</p>
+  <p>{{form.state}}</p>
+  <hr>
+  <p>{{form.LGA.label}}</p>
+  <p>{{form.LGA}}</p>
+  <hr>
+  <p>{{form.ward.label}}</p>
+  <p>{{form.ward}}</p>
+  <hr>
+  <p>{{form.phone_number.label}}</p>
+  <p>{{form.phone_number}}</p>
+  <hr>
+  <p>{{form.programming_language.label}}</p>
+  <p>{{form.programming_language}}</p>
+  <hr>
+  
+  
+  <button class="form-control bt" type="submit" name="submit">Submit</button>
+
+</form>
+
+</div>
+
+{% endblock %}
+  

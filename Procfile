@@ -1,0 +1,1 @@
+web: gunicorn opinion_project.wsgi

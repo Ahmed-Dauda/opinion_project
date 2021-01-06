@@ -1,0 +1,22 @@
+
+input{
+  margin: auto;
+  width: 335px;
+  border: 1px solid chocolate;
+}
+
+.signup-t{
+  text-align: center;
+  padding: 20px;
+  color: chocolate;
+}
+
+.bt{
+  background-color: chocolate;
+}
+
+.alart{
+  color:red;
+  text-align: center;
+}
+

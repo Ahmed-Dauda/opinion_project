@@ -1,0 +1,26 @@
+{% extends 'opinion/base.html' %}
+  
+ 
+{% block title %}
+<title>Hello, World!</title>
+{% endblock %}
+
+{% block body %}
+<h4 style="color:red; text-align: center">{{m}}</h4>
+
+<div class="form-control">
+<form method="POST" action=""   enctype="multipart/form-data">
+ 
+  {% csrf_token %}
+  
+  {{form.as_p}}
+  
+  
+  <button class="bt form-control">
+    Sign In
+  </button>
+  
+</form>
+</div>
+
+{% endblock %}
