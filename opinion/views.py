@@ -19,6 +19,11 @@ def index_view(request):
 			form.save()
 			return
 			redirect('logout')
+			
+		else:
+			return redirect('index')
+			
+			
 	else:
 		form =opinion_form()
 		
