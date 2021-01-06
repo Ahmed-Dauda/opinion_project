@@ -1,1 +1,1 @@
-web: gunicorn opinion_project.wsgi
+web: gunicorn opinion_project.wsgi --log-file -
