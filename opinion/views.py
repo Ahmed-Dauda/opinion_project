@@ -18,7 +18,7 @@ def index_view(request):
 		if form.is_valid():
 			form.save()
 			return
-			HttpResponseRedirect(reverse_lazy('logout'))
+			redirect('logout')
 	else:
 		form =opinion_form()
 		
