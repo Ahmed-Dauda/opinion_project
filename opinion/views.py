@@ -22,6 +22,11 @@ def index_view(request):
 			return
 			HttpResponseRedirect(reverse('logout'))
 			
+		else:
+			return
+			HttpResponseRedirect(reverse('index'))
+
+			
 		
 	else:
 		form =opinion_form()
