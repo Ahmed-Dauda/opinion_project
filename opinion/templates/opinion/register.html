@@ -2,11 +2,12 @@
   
  
 {% block title %}
-<title>Signup page</title>
+<title>register page</title>
 {% endblock %}
 
 {% block body %}
-<h5 class="signup-t">Membership Registration Form</h5>
+
+<h5 class="signup-t">Hello, {{user.username}}!, Welcome to CodersPoint's Academy Training Registration Form</h5>
 
 <div class="form-control signup">
   
@@ -15,7 +16,29 @@
   {% csrf_token %}
   
   
-<p>{{form.username.label }}</p>
+  
+  <p>{{form.sex.label}}</p>
+  <p>{{form.sex}}</p>
+  <hr>
+<p>{{form.state.label}}</p>
+  <p>{{form.state}}</p>
+  <hr>
+  <p>{{form.LGA.label}}</p>
+  <p>{{form.LGA}}</p>
+  <hr>
+  <p>{{form.ward.label}}</p>
+  <p>{{form.ward}}</p>
+  <hr>
+  <p>{{form.phone_number.label}}</p>
+  <p>{{form.phone_number}}</p>
+  <hr>
+  <p>{{form.programming_language.label}}</p>
+  <p>{{form.programming_language}}</p>
+  <hr>
+  
+  
+  <button class="form-control bt" type="submit" name="submit">Submit</button>
+  <!--<p>{{form.username.label }}</p>
 <p>{{form.username}}</p>
   <hr>   <p>{{form.first_name.label }}</p>
 <p>{{form.first_name}}</p>
@@ -36,10 +59,10 @@
   <p class="form-control bt">
     
     Already Member? <a href="{% url 'signin' %}" >Sign In</a>
-  </p>
+  </p>-->
   
 </form>
-  <br>
+  
 
 
   

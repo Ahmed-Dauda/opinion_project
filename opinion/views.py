@@ -15,45 +15,53 @@ from opinion.forms import opinion_form
 
 def index_view(request):
 	
+	
+	form =register_form()
+	
 	if request.method=='POST':
-		form =opinion_form(request.POST)
+		form =register_form(request.POST)
 		if form.is_valid():
 			form.save()
-			return  render(request,'opinion/logout.html')
+			form=AuthenticationForm()
+			return  render(request,'opinion/signin.html', {'form':form, 'mm': 'You have Successfully Registered. You can now log In'})
 			
 		else:
-			return
-			HttpResponseRedirect(reverse('index'))
-
 			
+			form =register_form()
+			context={
+			'form':form,
+			'm':'unsuccessful registration; password, mismatched. Try again.'.title()
+			}
+			
+			return render(request,'opinion/index.html', context)
 		
+			
 	else:
-		form =opinion_form()
+		form =register_form()
 		
 		context={'form':form}
 		return render(request,'opinion/index.html', context)
 	
-def signup_view(request):
-	form = register_form()
+	
+def register_view(request):
+	form = opinion_form()
 	if request.method=='POST':
-			form = register_form(request.POST)
+			form = opinion_form(request.POST)
 			if form.is_valid():
 				form.save()
-				username=form.cleaned_data.get('username')
-				password=form.cleaned_data.get('password1')
-			user = authenticate(username=username, password=password )
-			login(request, user)
-			return redirect('/')
+				return redirect('logout')
+
 				
 	else:
 			
-			form = register_form()
+			form = opinion_form()
 			
 		
 	context={
 	'form':form
 	}
-	return  render(request, 'opinion/signup.html', context)
+	return  render(request, 'opinion/register.html', context)
+	
 	
 def signin_view(request):
 	form = AuthenticationForm()
@@ -63,7 +71,7 @@ def signin_view(request):
 			user=form.get_user()
 			if user is not None:
 				login(request, user)
-				return redirect('index')
+				return redirect('register')
 				
 				
 			else:
@@ -76,5 +84,5 @@ def signin_view(request):
 		
 	
 def logout_view(request):
-	logout(request)
+	django_logout(request)
 	return  render(request,'opinion/logout.html')
